@@ -105,8 +105,31 @@ while x in range(iteration):
 
     #Mutation
 
-        # Code here
+    rand_mutation = random.randint(1, 100)
+    if rand_mutation <= 10:
+        print('\nTerjadi Mutasi\n')
+        pos_mutate = random.randint(0, len(data)-1)
+        print('Sebelum : ', offspring_1)
+        print('Fitness sebelum :', fitness_offspring_1)
+        if offspring_1[pos_mutate] == 1:
+            offspring_1[pos_mutate] = 0
+        else:
+            offspring_1[pos_mutate] = 1
+        print('Sesudah :', offspring_1)
 
+        save_offspring1 = [] 
+
+        for n_gen in range(14):
+            if offspring_1[n_gen] == 1:
+                calc_fitness = data[n_gen]
+                save_offspring1.append(calc_fitness)
+
+        fitness_offspring_1 = [sum(save_offspring1)]
+        print('Fitness sesudah :', fitness_offspring_1)
+    else:
+        print('\nTidak Terjadi Mutasi\n')
+
+    
     #Elitism
 
     print("\n-------Elitism Result-------\n")
